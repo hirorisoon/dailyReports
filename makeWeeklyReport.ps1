@@ -25,7 +25,7 @@ if (-not (Test-Path $weeklyFilePath)) {
     # 書き込むファイルを生成する
     $weekNum = Get-Date -UFormat "%W"
     $dateStr = $monday.ToString("yyyy/MM/dd")
-    "# 週報 ${preMondayY}年 第${weekNum}週 $dateStr" `
+    "# 週報 ${mondayY}年 第${weekNum}週 $dateStr" `
         | Set-Content -Path $weeklyFilePath  -Encoding $ENCODING
     # 前の週の初めから7日分日付をループする
     for ($i = 0; $i -lt 7; $i++) {
