@@ -43,9 +43,11 @@ if (-not (Test-Path $weeklyFilePath)) {
         # 日報ファイルの内容を週報ファイルに書き出し
         Get-Content $targetPath `
             | Add-Content -Path $weeklyFilePath -Encoding $ENCODING
+
+        # 週報ファイルの末尾に改行を追加
+        Add-Content -Path $weeklyFilePath "`r`n" -Encoding $ENCODING
     }
 
     # まとめとArchiveのタイトルを出力する
-    Get-Content $targetPath `
-        | Add-Content "\n## まとめ()\n\n" -Encoding $ENCODING
+    Add-Content -Path $weeklyFilePath "## まとめ()" -Encoding $ENCODING
 }
