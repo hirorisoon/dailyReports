@@ -17,7 +17,8 @@ try {
 $monday = $date.AddDays(1-$date.DayOfWeek)
 $mondayYMD = $monday.ToString("yyyyMMdd")
 $mondayY = $mondayYMD.Substring(0,4);
-$weeklyFilePath = "$path\\$mondayY\\w$mondayYMD.md"
+$mondayM = $mondayYMD.Substring(0,6);
+$weeklyFilePath = "$path\\$mondayY\\$mondayM\\w$mondayYMD.md"
 
 # 週報ファイルを確認
 if (-not (Test-Path $weeklyFilePath)) {
